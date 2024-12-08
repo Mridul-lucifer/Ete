@@ -23,7 +23,9 @@ mongoose.connect(mongoURI)
   .catch((err) => {
     console.log('Error connecting to MongoDB', err);
   });
-
+app.get('/',(req,res)=>{
+  res.send("hello")
+})
 app.post('/SignUp' , SignUp);
 app.post('/Login' , Login);
 app.post('/UpdateProfile' , verification , UpdateProfile);
