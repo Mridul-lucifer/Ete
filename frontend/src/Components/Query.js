@@ -11,7 +11,7 @@ export default function Query() {
         setExample([])
         setQuestion(que);
         try{
-        const response = await axios.post(`http://localhost:5000/example/${que}`,{})
+        const response = await axios.post(`https://server-pi-henna.vercel.app/example/${que}`,{})
         if(response.data.examples){
             setExample(response.data.examples);
         }}
@@ -22,7 +22,7 @@ export default function Query() {
 
     const GetSingleAnswer = async function(event){
         event.preventDefault();
-        const response = await axios.post('http://localhost:5000/query',{
+        const response = await axios.post('https://server-pi-henna.vercel.app/query',{
             Question:question
         })
         if(response.data.answer){
