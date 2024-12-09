@@ -78,7 +78,8 @@ const SignUp = async function(req,res){
         Products: []
         });
         await newProduct.save();
-        const token = jwt.sign({ UserId: newUser._id },{Name : newUser.Name}, secret_key);
+        const token = jwt.sign({ UserId: newUser._id, Name: newUser.Name }, secret_key);
+
         return res.status(202).json({
         msg: "Signup Successful",
         token
@@ -129,7 +130,8 @@ const Login = async function (req,res) {
             msg: "Incorrect Password"
           });
         }
-        const token = jwt.sign({ UserId: user._id }, {Name : newUser.Name},secret_key, { expiresIn: '1h' });
+        const token = jwt.sign({ UserId: newUser._id, Name: newUser.Name }, secret_key);
+
         return res.status(202).json({
           msg: "Login Successful",
           token
